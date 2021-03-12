@@ -1,0 +1,38 @@
+table,field_name,desc,type,key
+cn_datos,time,Fecha y hora del registro en UTC,timestamp,
+cn_datos,variable_id,Código de identificación de la variable que mide en la base de datos,numeric,FK
+cn_datos,value,Valor de la variable,numeric,
+cn_datos,validation_id,Código identificativo de la validación del registro,numeric,FK
+cn_datos,station_id,Código identificativo de la estación,numeric,FK
+cn_stations,station_id,Código identificativo de la estación en la base de datos,numeric,PK
+cn_stations,station_name,Nombre de la estación,text,
+cn_stations,station_code,Código original de la estación,numeric,
+cn_stations,coord_x,Coordenada x de la estación,numeric,
+cn_stations,coord_y,Coordenada y de la estación,numeric,
+cn_stations,epsg,Código de georreferenciación,numeric,
+cn_stations,munic_code,Código del municipio al que pertenece,numeric,
+cn_stations,munic_name,Nombre del municipio,text,
+cn_stations,province,Nombre de la provincia,text,
+cn_stations,cn_network_id,Código identificativo de la red a la que pertenece,numeric,FK
+cn_stations,type,Tipo de estación,text,
+cn_stations,category,Categoría de la estación,text,
+cn_stations,elev,Elevación,numeric,
+cn_stations,status,Estado actual de la estación (activa o inactiva),text,
+cn_stations,record_start,Fecha de inicio de los registros,timestamp,
+cn_stations,record_end,Fecha de fin de los registros,timestamp,
+cn_stations,station_variables_id,Códigos identificativos de las variables en la base de datos que mide la estación,numeric,
+cn_network,network_id,Código identificativo de la red,numeric,PK
+cn_network,network_code,Código real de la red,text,
+cn_network,network_name,Nombre de la red,text,
+cn_network,network_manager,Entidad gestora de la red,text,
+cn_network,network_status,Estado actual de la red,text,
+cn_network,data_policy,Política de datos,text,
+cn_network,URL,Enlace para más información de la red,link,
+cn_variables,variable_code,Código real de la variable,numeric,
+cn_variables,variable_id,Código de identificación de la variable en la base de datos,numeric,PK
+cn_variables,variable_name,Denominación de la variable,text,
+cn_variables,variable_units,Unidades de medida de la variable,text,
+cn_variables,variable_type,Tipo de variable,text,
+cn_validation,validation_id,Código identificativo de la validación del registro,numeric,PK
+cn_validation,validation_code,Código real de la validación del registro según la fuente,text,
+cn_validation,validation_name,Característica de la validación según la fuente,text,

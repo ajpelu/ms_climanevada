@@ -1,0 +1,6 @@
+sen,mes_season,max,min,mean 
+Estacional,Primavera,0.23,-1.47,-0.42
+Estacional,Verano,0.01,-0.37,-0.15
+Estacional,Otoño,1.49,-0.51,0.23
+Estacional,Invierno,0.48,-3.26,-1.42
+Anual,NA,0.75,-4.07,-1.91

@@ -1,0 +1,128 @@
+tipo_meteoro,code,desc,unit
+Evaporación,ED1,Evaporación total diaria en evaporímetro Piche,mm
+Evaporación,ED2,Evaporación total diaria en tanque,mm
+Evapotranspiración,ETD1,Evapotranspiración potencial diaria en lisímetro,mm
+Humedad,HD2,Humedad relativa mínima diaria,%
+Humedad,HD3,Hora de la humedad relativa mínima diaria,Mi
+Humedad,HD4,Humedad relativa máxima diaria,%
+Humedad,HD5,Hora de la humedad relativa máxima diaria,Mi
+Humedad,HI1,Humedad relativa del aire,%
+Nubosidad,NI1,Clase 1 de nubes bajas (entre el suelo y 2000 metros),
+Nubosidad,NI2,Clase 2 de nubes bajas (entre el suelo y 2000 metros),
+Nubosidad,NI3,Cantidad de nubes bajas (entre el suelo y 2000 metros),
+Nubosidad,NI4,Clase de nubes medias (entre 2000 y 6000 metros),
+Nubosidad,NI5,Clase de nubes altas (> 6000 metros),
+Nubosidad,NI6,Nubosidad total,
+Nubosidad,NI7,Clase 2 de nubes medias (entre 2000 y 6000 m de altura),
+Nubosidad,NI8,Clase 2 de nubes altas (por encima de 6000 m de altura),
+Precipitación y otros Meteoros,PD1,Precipitación total diaria de 7 a 7,mm
+Precipitación y otros Meteoros,PD10,Precipitación en forma de granizo en algún momento del día,
+Precipitación y otros Meteoros,PD11,Precipitación en forma de tormenta en algún momento del día,
+Precipitación y otros Meteoros,PD12,Existencia de niebla en algún momento del día,
+Precipitación y otros Meteoros,PD13,Existencia de rocío en algún momento del día,
+Precipitación y otros Meteoros,PD14,Existencia de escarcha en algún momento del día,
+Precipitación y otros Meteoros,PD15,Nieve cubriendo el suelo en algún momento del día,
+Precipitación y otros Meteoros,PD18,Intensidad de la precipitación máxima diaria en 20 minutos,mm h^-1^
+Precipitación y otros Meteoros,PD19,Intensidad de la precipitación máxima diaria en 2 horas,mm h^-1^
+Precipitación y otros Meteoros,PD2,Intensidad de la precipitación máxima diaria en 10 minutos,mm h^-1^
+Precipitación y otros Meteoros,PD20,Intensidad de la precipitación máxima diaria en 6 horas,mm h^-1^
+Precipitación y otros Meteoros,PD21,Intensidad de la precipitación máxima diaria en 12 horas,mm h^-1^
+Precipitación y otros Meteoros,PD3,Hora de la precipitación máxima en 10 minutos,Mi
+Precipitación y otros Meteoros,PD4,Intensidad de la precipitación máxima diaria en 30 minutos,mm h^-1^
+Precipitación y otros Meteoros,PD6,Intensidad de la precipitación máxima diaria en 60 minutos,mm h^-1^
+Precipitación y otros Meteoros,PD8,Precipitación en forma de lluvia en algún momento del día,
+Precipitación y otros Meteoros,PD9,Precipitación en forma de nieve en algún momento del día,
+Precipitación y otros Meteoros,PI1,Precipitación caída en el período,mm
+Precipitación y otros Meteoros,PI10,Nivel de nieve,mm
+Precipitación y otros Meteoros,PM1,Precipitación total mensual,mm
+Precipitación y otros Meteoros,PRECIPITACION_TOT,,
+Precipitación y otros Meteoros,ALTURA_NIEVE,Altura nieve,m
+Presión,HI2,Presión de vapor en HPA,hPa
+Presión,OD2,Presión máxima diaria,hPa
+Presión,OD3,Hora de la presión máxima diaria,Mi
+Presión,OD4,Presión mínima diaria,hPa
+Presión,OD5,Hora de la presión mínima diaria,Mi
+Presión,OI1,Presión atmosférica a nivel de la estación,hPa
+Presión,PRESION,,
+Radiación,II1,Insolación registrada en el período INS,Mi
+Radiación,RD22,Índice ultravioleta máximo,C
+Radiación,RI1,Radiación global en plano horizontal,W m^-2^
+Radiación,RI4,Radiación solar difusa,W m^-2^
+Radiación,RI5,Radiación ultravioleta UVB,W m^-2^
+Radiación,RAD_UVA_AVG,Radiación ultravioleta UVA,W m^-2^
+Radiación,RAD_CM3_UP_AVG,Radiación global CM3,W m^-2^
+Radiación,RAD_UVB_AVG,Radiación ultravioleta UVB,W m^-2^
+Radiación,RAD_CG3_UP_AVG,Radiación infrarroja incidente,W m^-2^
+Radiación,RAD_CG3_UP_MAX,Radiación infrarroja incidente máxima,W m^-2^
+Radiación,RAD_CM3_DOWN_AVG,Radiación reflejada,W m^-2^
+Radiación,RAD_CG3_DOWN_AVG,Radiación infrarroja reflejada,W m^-2^
+Radiación,RAD_NETA_AVG,Radiación neta,W m^-2^
+Radiación,ALBEDO_AVG,Albedo,%
+Radiación,RAD_IRL_GLOBAL_AVG,Radiación infrarroja lejana,W m^-2^
+Radiación,RAD_PAR_UP_AVG,Radiación par,mmol sg^-1^ m^2^
+Radiación,RAD_PAR_DOWN_AVG,Radiación par 1 media en el periodo,mmol sg^-1^ m^2^
+Radiación,R.PAR 1_MED,Radiación par 1 media en el periodo,mE sg^-1^ m^2^
+Radiación,RAD_UVA,Radiación ultravioleta UVA,W m^-2^
+Radiación,RAD_GLOBAL_AVG,Radiación global,W m^-2^
+Radiación,RAD_DIFUSA,Radiación difusa,W m^-2^
+Radiación,RAD_CM3_UP,Radiación global,W m^-2^
+Radiación,RAD_CG3_UP,Radiación infrarroja global,W m^-2^
+Radiación,RAD_CM3_DOWN,Radiación reflejada,W m^-2^
+Radiación,RAD_CG3_DOWN,Radiación infrarroja reflejada,W m^-2^
+Radiación,RAD_NETA,Radiación neta,W m^-2^
+Radiación,ALBEDO,Albedo,Tanto por uno
+Radiación,RAD_IRL_GLOBAL,Infrarroja larga global,W m^-2^
+Radiación,RAD_PAR_UP,Radiación fotosintéticamente activa global,W m^-2^
+Radiación,RAD_PAR_DOWN,Radiación fotosintéticamente activa reflejada,W m^-2^
+Radiación,RAD_GLOBAL_INCLINADA,Radiación global inclinada,W m^-2^
+Radiación,RAD_DIFUSA_AVG,Radiación difusa,W m^-2^
+Radiación,RAD_GLOBAL_INCLINADA_AVG,Radiación global inclinada,W m^-2^
+Radiación,RAD_NETA_TEMP_AVG,?,
+Temperatura,ED3,Temperatura máxima del agua del tanque,ºC
+Temperatura,ED4,Temperatura mínima del agua del tanque,ºC
+Temperatura,HI3,Temperatura del termómetro húmedo,ºC
+Temperatura,HI4,Temperatura del punto de rocío,ºC
+Temperatura,SD10,Temperatura mínima diaria a 0.15 m sobre el suelo,ºC
+Temperatura,SI1,Temperatura del suelo a 0.05 m bajo el suelo,ºC
+Temperatura,SI2,Temperatura del suelo a 0.10 m bajo el suelo,ºC
+Temperatura,SI4,Temperatura del suelo a 0.20 m bajo el suelo,ºC
+Temperatura,TD2,Temperatura mínima diaria,ºC
+Temperatura,TD3,Hora de la temperatura mínima diaria,Mi
+Temperatura,TD4,Temperatura máxima diaria,ºC
+Temperatura,TD5,Hora de la temperatura máxima diaria,Mi
+Temperatura,TI1,Temperatura media del termómetro seco,ºC
+Temperatura,TI2,Temperatura mínima del termómetro seco,ºC
+Temperatura,TI3,Temperatura máxima del termómetro seco,ºC
+Temperatura,TEMP_SUELO,Temperatura media del suelo,ºC
+Temperatura,TEMPINTER_AVG,Temperatura interna de la caja de intemperie,ºC
+Temperatura,T.SUPERFIC,Temperatura de la superficie media,ºC
+Temperatura,TEMPAIRE,Temperatura del aire,ºC
+Viento,PD16,Dir del viento en la intensidad de la precip máx diaria en 10 m,º
+Viento,PD17,Vel del viento en la intensidad de la precip max diaria en 10 m,km h^-1^
+Viento,PD22,Dirección dominante del viento en el día de lluvia,º
+Viento,VD76,Dirección de la racha máxima de viento,º
+Viento,VD77,Racha máxima de viento,km h^-1^
+Viento,VD78,Hora de la racha máxima de viento,Mi
+Viento,VI1,Dirección del viento,º
+Viento,VI10,Tiempo de dirección de viento en el 1er octante,Mi
+Viento,VI11,Tiempo de dirección de viento en el 2º octante,Mi
+Viento,VI12,Tiempo de dirección de viento en el 3er octante,Mi
+Viento,VI13,Tiempo de dirección de viento en el 4º octante,Mi
+Viento,VI14,Tiempo de dirección de viento en el 5º octante,Mi
+Viento,VI15,Tiempo de dirección de viento en el 6º octante,Mi
+Viento,VI16,Tiempo de dirección de viento en el 7º octante,Mi
+Viento,VI17,Tiempo de dirección de viento en el 8º octante,Mi
+Viento,VI2,Velocidad del viento,km h^-1^
+Viento,VI3,Recorrido del viento en el período,km
+Viento,VI4,Dirección de la racha máxima,º
+Viento,VI5,Racha máxima del viento,km h^-1^
+Viento,VI6,Tiempo de dirección de viento en el primer cuadrante,Mi
+Viento,VI7,Tiempo de dirección de viento en el segundo cuadrante,Mi
+Viento,VI8,Tiempo de dirección de viento en el tercer cuadrante,Mi
+Viento,VI9,Tiempo de dirección de viento en el cuarto cuadrante,Mi
+Viento,VELVIENTO_WVC(1),Velocidad media del viento,m s^-1^
+Viento,VELVIENTO_MAX,Velocidad máxima del viento,m s^-1^
+Viento,VELVIENTO_TMX,Fecha de racha máxima del viento,dd/mm/aa hh:mm
+Viento,VELVIENTO_WVC(2),,
+Viento,DIRVIENTO_SMM,,
+Visibilidad,CI1,Visibilidad,m

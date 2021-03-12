@@ -1,0 +1,61 @@
+---
+output:
+  bookdown::word_document2:
+      fig_caption: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+library(knitr)
+library("tidyverse")
+library("flextable")
+library(officer)
+library(ftExtra)
+```
+
+
+**Anexo 1** 
+
+```{r, tab-structurebd, message=FALSE}
+cn_structure <- read_csv(here::here("ms/tables/cn_structura_bbdd.csv"))
+
+b <- fp_border(color = "black", style = "solid", width = 2)
+
+cn_structure %>% 
+  flextable() %>% 
+  set_table_properties(layout = "autofit") %>% 
+  set_header_labels(
+    table = "Nombre de la tabla", 
+    field_name = "Campo",
+    desc = "Descripción del campo",
+    type = "Tipo", 
+    key = "Clave"
+  ) %>% hline(i = c(5,22,29,34), border = b) %>% 
+  merge_v(j = "table") %>% 
+  fontsize(size=7, part = "all") 
+```
+
+**Anexo 2** 
+```{r, tab-diccvariables, message=FALSE}
+
+dv <- read_csv(here::here("ms/tables/dicc_variables.csv"))
+
+dv %>% 
+  as_flextable() %>% 
+  set_table_properties(layout = "autofit") %>% 
+  set_header_labels(
+    tipo_meteoro = "Categoría", 
+    code = "Código",
+    desc = "Variable",
+    unit = "Unidades") %>% 
+   fontsize(size=7, part = "all")
+
+  # hline(i = c(5,22,29,34), border = b) %>% 
+  # merge_v(j = "table") %>% 
+  # fontsize(size=8, part = "all") 
+
+```
+

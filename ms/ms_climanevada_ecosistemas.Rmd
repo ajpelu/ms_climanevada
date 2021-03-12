@@ -1,0 +1,211 @@
+---
+title: "ClimaNevada: Base de datos climática del observatorio de Cambio Global de Sierra Nevada"
+  
+author: Antonio Jesús Pérez-Luque^1,2,a^, María Jesús Esteban-Parra ^3,b^, Eric Peinó-Calero^4,c^, Alicia Rodríguez-Brito^5,d^, Manuel Merino-Ceballos^1,2,e^,; Pablo Guerrero-Alonso^1,2,f^, Ricardo Moreno-LLorca^1,2,g^, Andrea Ros-Candeira^1,2,h^, Regino Zamora^1,2,i^ 
+output:
+  bookdown::word_document2: 
+    number_sections: false
+    highlight: null
+    reference_docx: Ecosistemas_template.docx
+csl: ecosistemas.csl
+bibliography: referencias_climanevada.bib
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(here)
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+
+library("tidyverse")
+library("flextable")
+library(officer)
+library(ftExtra)
+```
+
+> (1) Laboratorio de Ecología, Instituto Interuniversitario de Investigación del Sistema Tierra (IISTA-CEAMA), Universidad de Granada, Avda. del Mediterráneo s/n, Granada 18006, España.
+
+> (2) Grupo de Ecología Terrestre, Departamento de Ecología, Universidad de Granada, Facultad de Ciencias, Campus Fuentenueva s/n, 18071, Granada, España
+
+> (3) Departamento de Física Aplicada, Universidad de Granada, Facultad de Ciencias, Campus Fuentenueva s/n, 18071, Granada, España
+
+> (4) ...
+
+> (5) ...
+
+> Autor para correspondencia: ajperez@ugr.es
+
+> (a) <https://orcid.org/0000-0003-1350-6150>
+> (b) <https://orcid.org/0000-0002-1747-0469>
+
+# Palabras clave {-}
+clima, montaña, bases de datos, acceso abierto, cambio global, Sierra Nevada
+
+# Keywords {-}
+climate, mountains regions, databases, open access, global change, Sierra Nevada
+
+# Resumen {-}
+
+# Abstract {-}
+
+# Introducción {-}
+
+Uno de los aspectos clave para el seguimiento de los efectos del cambio global es la identificación y caracterización de los cambios ocurridos en las variables climáticas [@IPCC2013ClimateChange; @DeCastroetal2005ClimaEspana]. Esto es particularmente relevante para las regiones de montaña [@Kohleretal2014MountainsClimate; @PerezLuqueetal2016SenalesCambio; @Wasonetal2017ClimatesMove; @Zamoraetal2017MonitoringGlobal], ya que, por un lado, las montañas muestran amplios gradientes climáticos en pequeñas escalas espaciales, albergando una gran diversidad de microclimas [@Wundrametal2010AlpineSoil; ver Zamora et al. en este número], y por otro lado, son regiones muy vulnerables a los efectos del cambio climático [@Beniston2003ClimaticChange]. 
+
+Un primer paso fundamental para una buena caracterización climática es la recopilación de todas las posibles fuentes de datos climáticos y su integración en una base de datos para su posterior consulta. Existen iniciativas a diferentes escales, desde regionales a internacionales, que llevan a cabo esfuerzos para la recopilación de datos. Por ejemplo, la Agencia Estatal de Meteorología (AEMET) (http://www.aemet.es) recopila datos de variables climáticas de mas de 3000 estaciones de referencia distribuidas a lo largo de la geografía española; o la *Climate Change Initiative*  (Iniciativa de Cambio Climático) de la Agencia Espacial Europea (*European Space Agency*) (https://climate.esa.int/) que aglutina información de variables de interés climatológico del continente Europeo. Sin embargo, a escalas más locales, como a nivel de una región montañosa, la recopilación de datos se complica por diversos factores, como pueden ser, la baja densidad de estaciones de referencia, la heterogeneidad de redes/proyectos de seguimiento, la poca accesibilidad a datos, o la inexistencia de un marco común (proyecto, iniciativa, etc) que de sentido a la recopilación de esta información climatológica. El Observatorio de Cambio Global de Sierra Nevada [@Aspizuaetal2010ObservatorioCambio; @Zamoraetal2017GlobalChange] (https://obsnev.es/), es un proyecto de la Universidad de Granada y la Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible de la Junta de Andalucía, en el que se está desarrollando conjuntamente un programa de seguimiento e investigación de los impactos del cambio global en los ecosistemas de Sierra Nevada, para poder llevar a cabo medidas de gestión adecuadas que fomenten la resiliencia de los ecosistemas. Uno de los aspectos cruciales dentro de ese programa de seguimiento es la identificación y caracterización de los cambios ocurridos en las variables climáticas en el entorno de Sierra Nevada en los últimos años [@PerezLuqueetal2015EvolucionClima]. Teniendo como marco común esta iniciativa, y con el objetivo de recopilar toda la información climatológica existente en el entorno de Sierra Nevada, incluyendo la de sensores de proyectos de investigación pequeños, hemos diseñado una base de datos climática que permita a los usuarios tener acceso a las variables climáticas en esta región de montaña, para entre otras, contextualizar las respuestas observadas en los diferentes procesos ecológicos de los ecosistemas nevadenses. 
+
+# ClimaNevada {-}
+
+Desde que en 2007 se inició el Observatorio de Cambio Global de Sierra Nevada, se han llevado a cabo diferentes aproximaciones para gestionar y almacenar las bases de datos climáticas [@MunozJMAspizua2012RedEstaciones; @PerezPerezReyesMunoz2012SuministroProcesamiento]. Aunque estas aproximaciones han permitido realizar diferentes caracterizaciones y análisis de la variación de algunas variables climáticas en el entorno de Sierra Nevada [@PerezLuqueetal2015EvolucionClima; @PerezLuqueetal2016SenalesCambio], adolecían de una escasa documentación que dificultaba llevar a cabo un proceso de trazabilidad eficiente de la información. Asimismo no existía una plataforma que facilitara la accesibilidad a los datos, lo cual dificultaba la utilización de los mismos por parte de los diferentes tipos de usuarios. 
+
+Con objeto de mejorar la gestión de esta información climática, diseñamos ClimaNevada (http://climanevada.obsnev.es), una base de datos sólida sobre información climática en Sierra Nevada, cuyo objetivo principal es la armonización, normalización, documentación e integración de los datos climáticos existentes en el entorno de Sierra Nevada. Esta base de datos permite tener documentados todos los sensores climáticos instalados en el pasado y actualmente (localización, estado, propietario/responsable de su mantenimiento, estado de los datos, validación, integración, etc.), posibilitando a los investigadores y a los usuarios, además de la consulta de datos, la integración de información climática procedente de sensores asociados a proyectos ya finalizados que de otra forma serían difícilmente accesibles y reutilizables. Asimismo esta base de datos permite tener una trazabilidad de los registros climáticos en Sierra Nevada, facilitando a los usuarios el acceso a la fuente original de los datos.
+
+Además de la base de datos, se ha creado una plataforma para acceder y consultar de una forma sencilla los datos climáticos procedentes de diferentes redes de seguimiento del clima en el entorno de Sierra Nevada. Toda la información se presenta en abierto siguiendo la filosofía FAIR (*Findable, Accessible, Interoperable and Reusable*, es decir, encontrable, accesible, interoperable y reutilizable) [@Wilkinson2016], y va dirigida a investigadores, gestores y ciudadanos en general, que son los tres colectivos de usuarios a los que se enfoca todo trabajo realizado desde Observatorio de Cambio Global de Sierra Nevada. 
+
+## Identificación y Recopilación de fuentes de información climática {-}
+
+Tras un detallado análisis de la información existente en el entorno de Sierra Nevada, se procedió a la identificación de las diferentes fuentes de datos de información climática (Fig. 1). En concreto se diferenciaron entre dos grandes grupos: estaciones meteorológicas y sensores individuales. El primer grupo corresponde a las estaciones termopluviométricas y meteorológicas clásicas procedentes de diferentes redes con información histórica y/o activas, como por ejemplo la red de RIA (Red de Información Agroclimática de Andalucía), RAIF (Red de Alerta e Información Fitosanitaria de Andalucía), AEMET, etc. Mientras que el segundo grupo engloba otro tipo de fuentes de información procedentes de redes de sensores [@SanchezCanoetal2017WirelessSensor], proyectos de investigación [@BareaAzconetal2017LIFEADAPTAMED], experimentos en campo [@PerezLuqueetal2020DataSeedling], tesis doctorales, etc. Se trata de información a priori menos accesible y con una escasa probabilidad de ser reutilizada. Como limitación espacial, se determinó un buffer de 15 km entorno a los límites del Espacio Natural de Sierra Nevada. 
+
+## Estructura de la base de datos {-}
+
+Para almacenar la información climática se ha diseñado una base de datos relacional [@Codd1970RelationalModel]. Este tipo de base de datos, recomendada para la gestión de información ambiental [@BonetGil2010GestionInformacion; @LeDucetal2007DatabaseApplication], organiza la información en tablas relacionadas, minimizando los errores de duplicidad y maximizando la integrigad de los datos [@Martinetal2015DevelopmentImplementation]. 
+
+En primer lugar se diseñó un diagrama de entidad-relación (Fig. 2). Para ello se consideró la estructura de los datos proporcionados por las diferentes fuentes proveedoras de información climática (Tabla 1), teniendo como base el Subsistema de Información de Climatología Ambiental (CLIMA, http://www.juntadeandalucia.es/medioambiente/clima) de la Red de Información Ambiental de Andalucía (REDIAM). Posteriormente se implementó la base de datos utilizando PostgreSQL (http://www.postgresql.org/), un sistema de gestión de base de datos relacionales libre, junto con los complementos PostGIS (http://postgis.net/), para el tratamiento de datos georreferenciados, y TimeScaleDB (https://www.timescale.com) para tratamiento de series temporales.
+
+La base de datos se compone de cinco tablas (Fig. 2) que contienen la información climática (tabla *cn_datos*) registrada por cada estación (tabla *cn_stations*) para las diferentes variables (tabla *cn_variables*). Asimismo se muestra la red a la que pertenece cada estación (tabla *cn_networks*) y la validación llevada a cabo para cada medida (tabla *cn_validation*). Una descripción detallada de los campos que componen la base de datos ClimaNevada se incluyen en el Anexo 1.  
+
+## Integración de datos {-}
+
+Hasta la actualidad se han integrado más de 112 millones de registros procedentes de 303 estaciones meteorológicas y sensores pertenecientes a 19  redes y proyectos desplegados en el entorno de Sierra Nevada (Tab. 1). Toda esta información recoge un total de 128 variables (Anexo 2). Los datos presentan diferentes resoluciones temporales de medida (puntuales, diezminutales, horarios, diarios, mensuales, etc.). El rango temporal cubierto abarca desde 1940 hasta la actualidad. 
+
+
+## Visualización y Descarga de datos {-}
+
+Se ha creado una aplicación para la visualización de la información climática recopilada (Fig. 3), disponible en http://climanevada.obsnev.es/. Se trata de una aplicación de consulta espacial y de los metadatos de las estaciones, así como de algunas estadísticas básicas sobre cada estación (el tipo de registros que mide, la longitud de la serie de datos). La aplicación permite llevar a cabo consultas de datos utilizando diferentes filtros (por estaciones, variables, rango de elevación, etc.) y realizar la descarga de dichas consultas. Asimismo ofrece la posibilidad de realizar descargas masivas de todos los datos climáticos almacenados en el sistema de información del Observatorio de Cambio Global de Sierra Nevada. Además de ello, ClimaNevada permite llevar a cabo consultas y descargas de los metadatos (Fig. 3b) asociados a las estaciones, así como de las variables y las redes. Se ha puesto a disposición de los usuarios un sencillo manual para la descarga de datos (http://climanevada.obsnev.es/tutorial). 
+
+En un futuro próximo también se incorporará un panel que permita generar consultas complejas sobre los datos aprovechando la potencia del entorno Postgresql y de los complementos específicos agregados para tratamiento de información espacial y tratamiento de series temporales.
+
+La aplicación está disponible en abierto para cualquier perfil de usuario, así como todos los datos almacenados en el sistema de información a excepción de las ubicaciones exactas de algunos de los sensores desplegados en Sierra Nevada, las cuales se mostrarán como ubicaciones aproximadas en los mapas de visualización
+
+# Aplicación de ClimaNevada en la generación de bases de datos de precipitación {-}
+
+Muchos investigadores necesitan caracterizar los cambios ocurridos en diferentes variables climáticas en el entorno de Sierra Nevada en los últimos años [ver ejemplos en @ZamoraRodriguezetal2015HuellaCambio]. Esta caracterización les permite contextualizar las respuestas observadas en los diferentes procesos ecológicos de los ecosistemas nevadenses [*e.g.* @BareaAzconetal2014DistributionConservation; @PerezLuqueetal2020DataSeedling; @Algarraetal2019TrackingMontane]. Para ello, además de la recopilación e integración de diferentes fuentes de datos, es necesario la creación de bases de datos consistentes que hayan pasado un proceso de filtrado, validación y homogenización [@AlonsoGonzalezetal2018DailyGridded; @Staudtetal2007HomogenizationLongterm]. La mayor parte de estas bases de datos incluyen o se basan en registros de temperatura y precipitación como variables climáticas básicas que describen la hidroclimatología de una región, siendo fundamentales para el estudio de la variabilidad climática y el cambio climático y cuyos cambios tienen marcadas repercusiones ambientales. Estas variables constituyen el grueso de los datos climáticos recopilados en Sierra Nevada dentro de la base de datos ClimaNevada. 
+
+ClimaNevada incluye datos de más de 200 series de precipitación y 50 estaciones con registros de temperatura máxima y mínima con distintas resoluciones y coberturas temporales. A pesar del menor número de estaciones con datos de temperatura, debe tenerse en cuenta que esta variable es espacialmente más homogénea que la precipitación, aunque su homogenización y rellenado en un entorno como con fuertes contrastes geográficos como es Sierra Nevada requiere de un especial cuidado, con la aplicación de diversas técnicas. En ese sentido, actualmente se está aplicando diversos algoritmos de homogeneización que permitan obtener series fiables para caracterizar la variabilidad térmica del área. 
+
+Los registros de precipitación, más numerosos han permitido generar una base de datos de esta variable en Sierra Nevada. Describimos a continuación brevemente cómo se ha desarrollado y algunos resultados obtenidos a partir de la misma.
+
+## Series de precipitación {-}
+Utilizando la base de datos ClimaNevada, que contiene los datos originales de diversas variables meteorológicas medidas en distintos emplazamientos de Sierra Nevada y su área circundante, @PeinoCalero2020AnalisisVariabilidad realizó un proceso de filtrado, rellenado y homogenización usando el paquete Climatol [@Guijarro2019ClimatolClimate] para generar una base de datos de precipitación integrada y homogeneizada. Las aplicaciones de este tipo de bases de datos son diversas, siendo fundamentales para los estudios de variabilidad climática y de cambio climático. Así por ejemplo, estas bases de datos son el punto de partida de bases de datos en rejilla mediante modelos de interpolación con las que se pueden obtener superficies climáticas con las que realizar un examen detallado de las precipitaciones en una región o validar salidas de modelos. 
+
+Así @PeinoCalero2020AnalisisVariabilidad empleó el modelo de interpolación RegRAIN versión 0.1.0 [@AlzateVelasquezetal2017InterpolacionRegnie] para generar climatologías de la precipitación en cada mes y estación del año con una resolución de 400 m. Este modelo está basado en el modelo de lluvia regionalizada, Regnie [@Rautheetal2013CentralEuropean], y consiste en una combinación de un modelo de regresión lineal múltiple que incorpora como variables la elevación, la pendiente y la exposición del terreno y un algoritmo de interpolación según la distancia inversa [@Buishand2008SpatialExtremes]. Para ello se utilizaron datos de 203 estaciones con registros de precipitación homogeneizados cubriendo distintos periodos de tiempo. La Figura 4 muestra la distribución espacial de la precipitación media anual en Sierra Nevada y su entorno, para el período de 1990-2019. Una característica común, que sobresale en esta distribución está relacionada con el marcado gradiente este-oeste que se observa durante prácticamente todo el año, con los mayores acumulados hacia la región sur y noroccidental y menores en la parte oriental, destacándose un mínimo al noreste del sistema montañoso. Solo en el período estival se identifica un cambio en el patrón, en el cual este gradiente se debilita y prácticamente toda la región sufre valores acumulados de precipitación muy bajos, típica de esta época del año en ambientes de influencia mediterránea [@OlivaMoreno2008SierraNevada]. Además, la disposición alargada de oeste a este del macizo y su compleja orografía en el sur peninsular imponen una redistribución de la circulación de vientos regional y consolidan el papel que juega Sierra Nevada como frontera climática [@Martinez1982RegimenVariabilidad; @HidalgoMunozetal2011TrendsExtreme]. Esta situación determina que los flujos atlánticos afecten de manera más directa al margen occidental de macizo, siendo las altas cumbres y sobre todo las áreas encaradas a los sistemas sinópticos húmedos provenientes del oeste, los que reciben mayores cantidades de precipitación, fundamentalmente en el semestre frío del año. Por otro lado, el sector oriental, de relieves menos abruptos y altitudes más moderadas, tienen un comportamiento pluviométrico que responde más a las variaciones y advecciones provenientes del mar Mediterráneo.
+
+Por otra parte, utilizando las series mas largas de esta base de datos homogéneos de precipitación, se realizó un análisis de las tendencias temporales de las precipitaciones para Sierra Nevada en el periodo 1960-2019, mostrando unas tendencias significativamente decrecientes al nivel de confianza del 95% en un 46 % de las series analizadas [@PeinoCalero2020AnalisisVariabilidad]. La Figura 5 muestra la distribución espacial del signo y significación estas tendencias para las precipitaciones anuales mientras que La Tabla 2 presenta de forma resumida el rango de tendencias encontradas tanto para la precipitación anual como estacional. Como puede apreciarse los descensos significativos se localizan principalmente en el suroeste. 
+
+Este patrón generalizado de reducción de la precipitación anual con un valor promedio para toda el área de estudio de -1.91 mm/año, está esencialmente relacionado con el descenso de la precipitación durante el invierno, época más lluviosa del año con valores de precipitación media comprendidos entre los 100 y 300 mm, con un valor medio de -1.42 mm/año, concordando con lo observado en otros estudios a nivel regional [@CastroDiezetal2007CambiosClimaticos] y local [@PerezLuqueetal2015EvolucionClima]. Es destacable, los cambios encontrados en el mes de junio, en el que el 100% de las estaciones muestra tendencias decrecientes y un 66% lo hace significativamente. Este mes representa el mayor aporte de precipitaciones en el período estival, lo que unido a los bajos valores en julio y agosto propician aún más el descenso de las precipitaciones en esta época del año. 
+
+Al analizar las tendencias en los últimos 30 años (1990-2019), se encuentran tendencias tanto positivas como negativas pero en ninguno caso con significación estadística. La comparación de los resultados entre ambos períodos permite concluir la elevada variabilidad que presenta la precipitación a diferentes escalas temporales, lo que explica la complejidad que presenta el estudio de su comportamiento tanto en el contexto reciente como en futuros escenarios.
+
+
+
+# Conclusiones 
+
+La puesta en marcha de bases de datos como ClimaNevada, posibilita, además de la consulta personalizada de datos climáticos en el entorno de Sierra Nevada, generar una base robusta de información climática útil para gestores e investigadores, que permita, entre otros aspectos, validar simulaciones climáticas realizadas con modelos climáticos regionales, usados para obtener proyecciones de cambio climático de alta resolución, ayudando así a comprender y predecir los impactos sobre los ecosistemas de Sierra Nevada asociados al cambio climático. 
+
+# Agradecimientos
+Este trabajo ha sido desarrollado bajo el Convenio de colaboración entre la Consejería de Medio Ambiente y Ordenación del Territorio de la Junta de Andalucía y la Universidad de Granada para el desarrollo de actividades vinculadas al Observatorio de Cambio Global de Sierra Nevada. Antonio J. Pérez-Luque agradece la financiación recibida por el proyecto LIFE-ADAPTAMED (LIFE14 CCA/ES/000612): Protección de servicios ecosistémicos clave amenazadas por el cambio climático mediante gestión adaptativa de socioecosistemas mediterráneos. Agradecemos a Aranzazu Manjón Goya (Organismo Autónomo de Parques Nacionales), Mariano Corzo García (Subsistema Clima REDIAM), Juan Lorite (Universidad de Granada), Blanca Ramos-Losada (Consejería de Medio Ambiente y Ordenación del Territorio de la Junta de Andalucía) por facilitarnos información de las estaciones multiparamétricas y sensores instaladas en el entorno de Sierra Nevada. Aasimismo agradecemos a Francisco J. Bonet, Ramón Pérez-Pérez, Blas M. Benito, y Pablo S. Reyes-Muñoz por los trabajos previos de recopilación de información climática. 
+
+
+# Tablas 
+
+```{r, tab-network, message=FALSE}
+n <- read_csv(here::here("ms/tables/cn_network.csv"))
+
+n %>% 
+  flextable() %>% 
+  set_table_properties(layout = "autofit") %>% 
+  set_header_labels(
+    codigo = "Código de la Red", 
+    nombre_red = "Red", 
+    institution_red = "Institución"
+  ) %>% 
+  fontsize(size=7, part = "all") 
+
+```
+
+***Tabla 1***. Redes proveedoras de datos en ClimaNevada.
+
+***Table 1***. Meteorological Data sources of ClimaNevada.
+
+
+```{r, tab-2, message=FALSE}
+k <- read_csv(here::here("ms/tables/tabla2.csv"))
+
+k %>% 
+  flextable() %>% 
+  set_header_labels(
+    sen = "Sen slope", 
+    mes_season = "Mes / Estación", 
+    max = "Máximo (mm/año)",
+    min = "Mínimo (mm/año)",
+    mean = "Media (mm/año)"
+  ) %>% 
+  merge_v(j=1) %>% 
+  fontsize(size=9, part = "all") 
+
+```
+
+***Tabla 2***. Magnitud de las tendencias anual y estacioanles para las series de precipitación con más de 60 años obtenidas mediante la pendiente de Sen.
+
+***Table 2***. Magnitude of annual and seasonal trends for precipitation series older than 60 years obtained by Sen's slope.
+
+
+# Figures 
+
+***Figura 1***. Identificación de las fuentes de datos climáticos (estaciones meteorológicas y sensores) en ClimaNevada.
+
+***Figure 1***. Climate data sources (weather stations and sensors) of ClimaNevada.
+
+```{r figEstructura, echo=FALSE, fig.height=4}
+knitr::include_graphics(here::here("ms/figures/estructura.png"))
+```
+
+***Figura 2***. Diagrama Entidad-Relación de la base de datos ClimaNevada. Para cada tabla se indica el nombre y el tipo del campo. Los campos que actúan como clave primaria se indican con PK (*Primary Key*), y los considerados como clave foránea con FK (*Foreign Key*). Las relaciones entre las tablas se muestran mediante flechas. La descripción de los campos de cada tabla se incluye en el Anexo 1.
+
+***Figure 2***. Entity-Relationship diagram of the ClimaNevada database. For each table the name and type of the field is indicated. Primary key and Foreign fields are indicated with PK and FK respectively. Tables relationships are shown by arrows. Tables field's description are included in Annex 1
+
+```{r figEr, echo=FALSE}
+knitr::include_graphics(here::here("ms/figures/er.png"))
+```
+
+
+***Figura 3***. Aspecto de la aplicación ClimaNevada donde se muestra el mapa (**a**) con la distribución espacial de las estaciones, mostrando aquellas que cumplen los criterios de búsqueda así como las que se han seleccionado para su descarga. La aplicación también permite visualizar y descargar diferentes metadatos asociados (**b**). 
+
+***Figure 3***. Visualization of ClimaNevada. Map display (**a**) with the spatial distribution of the stations, showing those that meet the search criteria. The application also allows you to view and download different associated metadata (**b**). 
+
+
+```{r figApp, echo=FALSE}
+knitr::include_graphics(here::here("ms/figures/app-climanevada.png"))
+```
+
+***Figura 4***. Distribución espacial de la precipitación media anual (mm) en Sierra Nevada y su entorno obtenida a partir del promedio de los datos interpolados.
+
+***Figure 4***. Spatial distribution of mean annual precipitation (mm) in Sierra Nevada and its surroundings obtained from the average of the interpolated data.
+
+```{r figPrec, echo=FALSE}
+knitr::include_graphics(here::here("ms/figures/precipitacion.png"))
+```
+
+
+***Figura 5***. Tendencias anuales de las estaciones con registros superiores a 60 años. Los símbolos indican: (-)* tendencia decreciente significativa al 95%, (-) tendencia decreciente sin significación, (+)* tendencia creciente significativa al 95%, (+) tendencia creciente sin significación.
+
+***Figure 5***. Annual trends of stations with records greater than 60 years. Symbols indicate: (-)* decreasing trend significant at 95%, (-) decreasing trend without significance, (+)* increasing trend significant at 95%, (+) increasing trend without significance.
+
+```{r figTrend, echo=FALSE}
+knitr::include_graphics(here::here("ms/figures/tendencia.png"))
+```
+
+
+
+# Referencias
